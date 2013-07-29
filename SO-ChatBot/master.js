@@ -5134,10 +5134,7 @@ var fahrenheitCountries = Object.TruthMap([
 
 var seen = bot.memory.get( 'users' );
 
-var message = "Welcome to the JavaScript chat! Please review the " +
-		bot.adapter.link(
-			"room pseudo-rules",
-			"http://rlemon.github.com/so-chat-javascript-rules/" ) + ". " +
+var message = "Welcome to the Ask Ubuntu General Room! Please review the " +
 	"Please don't ask if you can ask or if anyone's around; just ask " +
 	"your question, and if anyone's free and interested they'll help.";
 
