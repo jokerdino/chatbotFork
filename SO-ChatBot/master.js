@@ -5156,4 +5156,16 @@ bot.addCommand({
 
 })();
 
+var blackscreen = function() {
+	return 'http://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it';
+	};
+
+bot.addCommand({  
+	name : 'black-screen',
+	fun : blackscreen,
+	permissions : {
+		del : 'NONE'
+	}
+	
+	});
 
