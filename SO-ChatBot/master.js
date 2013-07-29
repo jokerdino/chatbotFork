@@ -5134,7 +5134,7 @@ var fahrenheitCountries = Object.TruthMap([
 
 var seen = bot.memory.get( 'users' );
 
-var message = "Welcome to the Ask Ubuntu General Room! Please review the " +
+var message = "Welcome to the Ask Ubuntu General Room! " +
 	"Please don't ask if you can ask or if anyone's around; just ask " +
 	"your question, and if anyone's free and interested they'll help.";
 
