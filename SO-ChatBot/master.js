@@ -653,7 +653,7 @@ Date.timeSince = function ( d0, d1 ) {
 "use strict";
 
 var bot = window.bot = {
-	invocationPattern : '$$',
+	invocationPattern : '!!',
 
 	commands : {}, //will be filled as needed
 	commandDictionary : null, //it's null at this point, won't be for long
@@ -681,7 +681,7 @@ var bot = window.bot = {
 
 			//tell the user he's banned only if he hasn't already been told
 			if ( !this.banlist[id].told ) {
-				msg.reply( 'You iz in mindjail' );
+				msg.reply( 'You have been banned from using the bot. Please don\'t abuse it.' );
 				this.banlist[ id ].told = true;
 			}
 			return;
@@ -2754,7 +2754,6 @@ var output = bot.adapter.out = {
 		// the freezer and never let it out. not until it can talk again. what
 		// was I intending to say?
 		if ( !bot.stopped ) {
-			//ah fuck it
 			this.sendToRoom( obj.text, obj.room );
 		}
 	},
