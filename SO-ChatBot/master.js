@@ -336,7 +336,7 @@ IO.jsonp.google = function ( query, cb ) {
 	});
 };
 
-;
+
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //small utility functions
 Object.merge = function () {
@@ -648,7 +648,7 @@ Date.timeSince = function ( d0, d1 ) {
 	}
 };
 
-;
+
 (function () {
 "use strict";
 
@@ -2383,7 +2383,7 @@ what              #simply the word what
 
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -2814,7 +2814,7 @@ IO.register( 'output', output.send, output );
 bot.adapter.init();
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -2893,7 +2893,7 @@ function loadUsers () {
 loadUsers();
 }());
 
-;
+
 //warning: if you have more than 7 points of super-sentitive feminist delicacy,
 // don't read this file. treat it as a nice black box.
 
@@ -2980,9 +2980,7 @@ bot.listen(
 	bot.personality.apologize, bot.personality );
 bot.listen( /^bitch/i, bot.personality.bitch, bot.personality );
 
-;
 
-;
 (function () {
 var hammers = {
 	STOP  : 'HAMMERTIME!',
@@ -3009,13 +3007,7 @@ IO.register( 'input', function STOP ( msgObj ) {
 
 })();
 
-;
 
-
-;
-
-
-;
 var cowsay = (function () {
 "use strict";
 
@@ -3197,7 +3189,7 @@ bot.listen(
 	}
 );
 
-;
+
 (function () {
 "use strict";
 //this and the history.js file are nearly identical, as they both manually have
@@ -3325,7 +3317,7 @@ bot.addCommand({
 });
 }());
 
-;
+
 //listener to help decide which Firefly episode to watch
 
 bot.listen( /(which |what |give me a )?firefly( episode)?/i, function ( msg ) {
@@ -3340,7 +3332,7 @@ bot.listen( /(which |what |give me a )?firefly( episode)?/i, function ( msg ) {
 	return 'Episode {0} - {1}'.supplant(r + 1, names[r]);
 });
 
-;
+
 (function () {
 //they made me make it. I begged them not to.
 
@@ -3494,7 +3486,7 @@ bot.addCommand({
 
 }());
 
-;
+
 // issue #51 https://github.com/Zirak/SO-ChatBot/issues/51
 
 //valid args are one of the following:
@@ -3624,9 +3616,7 @@ bot.addCommand({
 	async : true
 });
 
-;
 
-;
 (function () {
 var nulls = [
 	'The Google contains no such knowledge',
@@ -3701,10 +3691,7 @@ bot.addCommand({
 });
 }());
 
-;
 
-
-;
 (function () {
 "use strict";
 
@@ -3956,7 +3943,7 @@ bot.addCommand({
 
 })();
 
-;
+
 (function () {
 "use strict";
 var parse = bot.getCommand( 'parse' );
@@ -4148,7 +4135,7 @@ bot.addCommand({
 loadCommands();
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -4164,7 +4151,7 @@ function linkCheck ( suspect ) {
 
 }());
 
-;
+
 (function () {
 //I wish you could use `default` as a variable name
 var def = {
@@ -4203,12 +4190,7 @@ IO.register( 'userregister', function tracker ( user, room ) {
 
 })();
 
-;
 
-;
-
-
-;
 (function () {
 "use strict";
 var ownerRoom = 17;
@@ -4445,10 +4427,6 @@ bot.addCommand({
 
 })();
 
-;
-
-
-;
 (function () {
 
 var template = '[{display_name}]({link}) '           +
@@ -4570,7 +4548,7 @@ bot.addCommand({
 
 }());
 
-;
+
 (function () {
 /*
   ^\s*         #tolerate pre-whitespace
@@ -4646,7 +4624,7 @@ function get_message_link ( message ) {
 }
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -4708,7 +4686,7 @@ bot.addCommand( bot.CommunityCommand({
 
 })();
 
-;
+
 (function () {
 var timers = Object.create( null ),
 	id = 0;
@@ -4767,7 +4745,7 @@ bot.addCommand({
 
 })();
 
-;
+
 (function () {
 var list = bot.memory.get( 'todo' );
 
@@ -4913,7 +4891,7 @@ bot.addCommand({
 
 }());
 
-;
+
 (function () {
 var undo = {
 	last_id : null,
@@ -4992,7 +4970,7 @@ bot.addCommand({
 
 }());
 
-;
+
 IO.register( 'input', function ( msgObj ) {
 	if ( msgObj.user_id === 1386886 && Math.random() < 0.005 ) {
 		bot.adapter.out.add(
@@ -5000,7 +4978,7 @@ IO.register( 'input', function ( msgObj ) {
 	}
 });
 
-;
+
 (function () {
 //meet Winded Weasel. he helps you make decisions and he answers questions.
 //x or y [or z ...]
@@ -5134,7 +5112,7 @@ bot.listen(questionRe, function questionListener () {
 
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -5229,7 +5207,7 @@ bot.addCommand({
 });
 }());
 
-;
+
 (function () {
 "use strict";
 
