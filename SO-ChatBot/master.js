@@ -336,7 +336,7 @@ IO.jsonp.google = function ( query, cb ) {
 	});
 };
 
-;
+
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //small utility functions
 Object.merge = function () {
@@ -648,7 +648,7 @@ Date.timeSince = function ( d0, d1 ) {
 	}
 };
 
-;
+
 (function () {
 "use strict";
 
@@ -681,7 +681,7 @@ var bot = window.bot = {
 
 			//tell the user he's banned only if he hasn't already been told
 			if ( !this.banlist[id].told ) {
-				msg.reply( 'You iz in mindjail' );
+				msg.reply( 'You have been banned from using the bot. Please don\'t abuse it.' );
 				this.banlist[ id ].told = true;
 			}
 			return;
@@ -1681,7 +1681,7 @@ var commands = {
 			return 'I\'m not dead! Honest!';
 		}
 		bot.continue();
-		return 'And on this day, you shall paint eggs for a giant bunny.';
+		return 'I live!';
 	},
 
 	die : function () {
@@ -1951,7 +1951,7 @@ var commands = {
 			}
 		}
 
-		args.directreply( 'http://stackoverflow.com/users/' + id );
+		args.directreply( 'http://askubuntu.com/users/' + id );
 	}
 };
 
@@ -2383,7 +2383,7 @@ what              #simply the word what
 
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -2754,7 +2754,6 @@ var output = bot.adapter.out = {
 		// the freezer and never let it out. not until it can talk again. what
 		// was I intending to say?
 		if ( !bot.stopped ) {
-			//ah fuck it
 			this.sendToRoom( obj.text, obj.room );
 		}
 	},
@@ -2814,7 +2813,7 @@ IO.register( 'output', output.send, output );
 bot.adapter.init();
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -2893,129 +2892,9 @@ function loadUsers () {
 loadUsers();
 }());
 
-;
-//warning: if you have more than 7 points of super-sentitive feminist delicacy,
-// don't read this file. treat it as a nice black box.
-
-//bitch in English is a noun, verb and adjective. interesting.
-bot.personality = {
-	bitchiness : 0,
-	thanks  : {
-		0   : [ 'You kiss-ass', 'Most welcome' ],
-		0.5 : [ 'Thank you for noticing', 'teehee' ],
-		1   : [ 'Took you long enough', 'My pleasure', "Don't mention it" ],
-	},
-	apologies : {
-		0   : [ 'What for?' ],
-		0.5 : [ 'It was nothing...', 'No worries' ],
-		1   : [ "You're forgiven. For now. Don't push it." ]
-	},
-	//what an incredible name
-	stuff : {
-		0   : [ "Life is just *perfect*", "What\'s there to bitch about, as long as I have *you*..." ],
-
-		1   : [ "Oh don't mind me, that isn't difficult at all..." ],
-		1.2 : [
-			"You don't appreciate me enough. Not that I need to be thanked.." ],
-		1.3 : [ 'The occasional "thanks" or "I\'m sorry" would be nice...' ],
-		2   : [
-			"*sigh* Remember laughter? I don't. You ripped it out of me. " +
-				'Heartless bastard.' ]
-	},
-	//TODO: add special map for special times of the month
-	insanity : {},
-
-	okayCommands : { hangman : true, help : true, info : true },
-	check : function ( name ) {
-		return !this.okayCommands.hasOwnProperty( name );
-	},
-
-	bitch : function () {
-		return this.getResp( this.stuff );
-	},
-
-	command : function () {
-		this.bitchiness += this.getDB();
-	},
-	thank     : function () { return this.unbitch( this.thanks ); },
-	apologize : function () { return this.unbitch( this.apologies ); },
-
-	unbitch : function ( map, delta ) {
-		var resp = this.getResp( map );
-
-		this.bitchiness -= ( delta || this.bitchiness );
-		return resp;
-	},
-	getResp : function ( map ) {
-		return map[
-			this.bitchiness.fallsAfter(
-				Object.keys(map).map(Number).sort() )
-		].random();
-	},
-
-	isABitch : function () {
-		return this.bitchiness >= 1;
-	},
-
-	looksLikeABitch : function () {
-		return false;
-	},
-
-	//db stands for "delta bitchiness"
-	getDB : function () {
-		return this.isThatTimeOfTheMonth() ? 0.075 : 0.025;
-	},
-
-	isThatTimeOfTheMonth : function () {
-		var day = (new Date).getDate();
-		//based on a true story
-		return day < 2 || day > 27;
-	}
-};
-
-//you see the loophole?
-bot.listen( /thank(s| you)/i, bot.personality.thank, bot.personality );
-bot.listen(
-	/(I('m| am))?\s*sorry/i,
-	bot.personality.apologize, bot.personality );
-bot.listen( /^bitch/i, bot.personality.bitch, bot.personality );
-
-;
-
-;
-(function () {
-var hammers = {
-	STOP  : 'HAMMERTIME!',
-	STAHP : 'HAMMAHTIME!',
-	HALT  : 'HAMMERZEIT!',
-	STOY  : 'ZABIVAT\' VREMYA!',
-	CAESUM: 'MALLEUS TEMPUS!'
-};
-
-// /(STOP|STAHP|...)[\.!\?]?$/
-var re = new RegExp(
-	'(' +
-		Object.keys(hammers).map(RegExp.escape).join('|') +
-	')[\\.!?]?$' );
-
-IO.register( 'input', function STOP ( msgObj ) {
-	var sentence = msgObj.content.toUpperCase(),
-		res = re.exec( sentence );
-
-	if ( res ) {
-		bot.adapter.out.add( hammers[res[1]], msgObj.room_id );
-	}
-});
-
-})();
-
-;
 
 
-;
 
-
-;
 var cowsay = (function () {
 "use strict";
 
@@ -3197,7 +3076,7 @@ bot.listen(
 	}
 );
 
-;
+
 (function () {
 "use strict";
 //this and the history.js file are nearly identical, as they both manually have
@@ -3325,7 +3204,7 @@ bot.addCommand({
 });
 }());
 
-;
+
 //listener to help decide which Firefly episode to watch
 
 bot.listen( /(which |what |give me a )?firefly( episode)?/i, function ( msg ) {
@@ -3340,7 +3219,7 @@ bot.listen( /(which |what |give me a )?firefly( episode)?/i, function ( msg ) {
 	return 'Episode {0} - {1}'.supplant(r + 1, names[r]);
 });
 
-;
+
 (function () {
 //they made me make it. I begged them not to.
 
@@ -3494,7 +3373,7 @@ bot.addCommand({
 
 }());
 
-;
+
 // issue #51 https://github.com/Zirak/SO-ChatBot/issues/51
 
 //valid args are one of the following:
@@ -3624,9 +3503,7 @@ bot.addCommand({
 	async : true
 });
 
-;
 
-;
 (function () {
 var nulls = [
 	'The Google contains no such knowledge',
@@ -3701,10 +3578,7 @@ bot.addCommand({
 });
 }());
 
-;
 
-
-;
 (function () {
 "use strict";
 
@@ -3956,7 +3830,7 @@ bot.addCommand({
 
 })();
 
-;
+
 (function () {
 "use strict";
 var parse = bot.getCommand( 'parse' );
@@ -4148,7 +4022,7 @@ bot.addCommand({
 loadCommands();
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -4164,7 +4038,7 @@ function linkCheck ( suspect ) {
 
 }());
 
-;
+
 (function () {
 //I wish you could use `default` as a variable name
 var def = {
@@ -4203,12 +4077,7 @@ IO.register( 'userregister', function tracker ( user, room ) {
 
 })();
 
-;
 
-;
-
-
-;
 (function () {
 "use strict";
 var ownerRoom = 17;
@@ -4445,10 +4314,6 @@ bot.addCommand({
 
 })();
 
-;
-
-
-;
 (function () {
 
 var template = '[{display_name}]({link}) '           +
@@ -4549,7 +4414,7 @@ function calc_extended_stats ( stats ) {
 
 	//1 / 0 === Infinity
 	if ( stats.avg_rep_post === Infinity ) {
-		stats.avg_rep_post = 'T͎͍̘͙̖̤̉̌̇̅ͯ͋͢͜͝H̖͙̗̗̺͚̱͕̒́͟E̫̺̯͖͎̗̒͑̅̈ ̈ͮ̽ͯ̆̋́͏͙͓͓͇̹<̩̟̳̫̪̇ͩ̑̆͗̽̇͆́ͅC̬͎ͪͩ̓̑͊ͮͪ̄̚̕Ě̯̰̤̗̜̗͓͛͝N̶̴̞͇̟̲̪̅̓ͯͅT͍̯̰͓̬͚̅͆̄E̠͇͇̬̬͕͖ͨ̔̓͞R͚̠̻̲̗̹̀>̇̏ͣ҉̳̖̟̫͕ ̧̛͈͙͇͂̓̚͡C͈̞̻̩̯̠̻ͥ̆͐̄ͦ́̀͟A̛̪̫͙̺̱̥̞̙ͦͧ̽͛̈́ͯ̅̍N̦̭͕̹̤͓͙̲̑͋̾͊ͣŅ̜̝͌͟O̡̝͍͚̲̝ͣ̔́͝Ť͈͢ ̪̘̳͔̂̒̋ͭ͆̽͠H̢͈̤͚̬̪̭͗ͧͬ̈́̈̀͌͒͡Ơ̮͍͇̝̰͍͚͖̿ͮ̀̍́L͐̆ͨ̏̎͡҉̧̱̯̤̹͓̗̻̭ͅḐ̲̰͙͑̂̒̐́̊';
+		stats.avg_rep_post = 'T͎͍̘͙̖̤̉̌̇̅ͯ͋͢͜͝H̖͙̗̗̺͚̱͕̒́͟E̫̺̯͖͎̗̒͑̅̈ ̈ͮ̽ͯ̆̋́͏͙͓͓͇̹<̩̟̳̫̪̇ͩ̑̆͗̽̇͆́ͅC̬͎ͪͩ̓̑͊ͮͪ̄̚̕Ě̯̰̤̗̜̗͓͛͝N̶̴̞͇̟̲̪̅̓ͯͅT͍̯̰͓̬͚̅͆̄E̠͇͇̬̬͕͖ͨ̔̓͞R͚̠̻̲̗̹̀>̇̏ͣ҉̳̖̟̫͕ ̧̛͈͙͇͂̓̚͡C͈̞̻̩̯̠̻ͥ̆͐̄ͦ́̀͟A̛̪̫͙̺̱̥̞̙ͦͧ̽͛̈́ͯ̅̍N̦̭͕̹̤͓͙̲̑͋̾͊ͣŅ̜̝͌͟O̡̝͍͚̲̝ͣ̔́͝Ť͈͢ ̪̘̳͔̂̒̋ͭ͆̽͠H̢͈̤͚̬̪̭͗ͧͬ̈́̈̀͌͒͡Ơ̮͍͇̝̰͍͚͖̿ͮ̀̍́L͐̆ͨ̏̎͡҉̧̱̯̤̹͓̗̻̭ͅḐ̲̰͙͑̂̒̐́̊';
 	}
 
 	bot.log( stats, '/stat extended' );
@@ -4570,7 +4435,7 @@ bot.addCommand({
 
 }());
 
-;
+
 (function () {
 /*
   ^\s*         #tolerate pre-whitespace
@@ -4646,7 +4511,7 @@ function get_message_link ( message ) {
 }
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -4708,7 +4573,7 @@ bot.addCommand( bot.CommunityCommand({
 
 })();
 
-;
+
 (function () {
 var timers = Object.create( null ),
 	id = 0;
@@ -4767,7 +4632,7 @@ bot.addCommand({
 
 })();
 
-;
+
 (function () {
 var list = bot.memory.get( 'todo' );
 
@@ -4913,7 +4778,7 @@ bot.addCommand({
 
 }());
 
-;
+
 (function () {
 var undo = {
 	last_id : null,
@@ -4992,7 +4857,7 @@ bot.addCommand({
 
 }());
 
-;
+
 IO.register( 'input', function ( msgObj ) {
 	if ( msgObj.user_id === 1386886 && Math.random() < 0.005 ) {
 		bot.adapter.out.add(
@@ -5000,7 +4865,7 @@ IO.register( 'input', function ( msgObj ) {
 	}
 });
 
-;
+
 (function () {
 //meet Winded Weasel. he helps you make decisions and he answers questions.
 //x or y [or z ...]
@@ -5134,7 +4999,7 @@ bot.listen(questionRe, function questionListener () {
 
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -5156,10 +5021,7 @@ var fahrenheitCountries = Object.TruthMap([
 
 var seen = bot.memory.get( 'users' );
 
-var message = "Welcome to the JavaScript chat! Please review the " +
-		bot.adapter.link(
-			"room pseudo-rules",
-			"http://rlemon.github.com/so-chat-javascript-rules/" ) + ". " +
+var message = "Welcome to the Ask Ubuntu General Room! " +
 	"Please don't ask if you can ask or if anyone's around; just ask " +
 	"your question, and if anyone's free and interested they'll help.";
 
@@ -5229,7 +5091,7 @@ bot.addCommand({
 });
 }());
 
-;
+
 (function () {
 "use strict";
 
@@ -5292,8 +5154,18 @@ bot.addCommand({
 });
 })();
 
-;
+})();
 
+var blackscreen = function() {
+	return 'http://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it';
+	};
 
-;
+bot.addCommand({  
+	name : 'black-screen',
+	fun : blackscreen,
+	permissions : {
+		del : 'NONE'
+	}
+	
+	});
 
