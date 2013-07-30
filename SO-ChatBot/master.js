@@ -1951,7 +1951,7 @@ var commands = {
 			}
 		}
 
-		args.directreply( 'http://stackoverflow.com/users/' + id );
+		args.directreply( 'http://stackexchange.com/users/' + id );
 	}
 };
 
