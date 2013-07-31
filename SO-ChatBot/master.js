@@ -1951,7 +1951,7 @@ var commands = {
 			}
 		}
 
-		args.directreply( 'http://chat.stackexchange.com/users/' + id );
+		args.directreply( 'http://chat.stackexchange.com/users' + id );
 	}
 };
 
@@ -3205,42 +3205,6 @@ bot.addCommand({
 }());
 
 
-//listener to help decide which Firefly episode to watch
-
-bot.listen( /(which |what |give me a )?firefly( episode)?/i, function ( msg ) {
-	var names = ["Serenity", "The Train Job", "Bushwhacked", "Shindig", "Safe", "Our Mrs. Reynolds", "Jaynestown", "Out of Gas", "Ariel", "War Stories", "Trash", "The Message", "Heart of Gold", "Objects in Space"];
-
-	//no mention of episode, 5% chance of getting the movie
-	if ( msg.indexOf('episode') === -1 && Math.random() < 0.05 ) {
-		return 'Serenity (movie)';
-	}
-
-	var r = Math.floor(Math.random() * 14);
-	return 'Episode {0} - {1}'.supplant(r + 1, names[r]);
-});
-
-
-(function () {
-//they made me make it. I begged them not to.
-
-//obligatories
-var special = {
-	'your mom' : ['Your mom is always open for business.'],
-	'your sister' : ['Your sister is too busy right now.'],
-	//hey, the last two lines aligned! together with the bodies...
-	//erm, what?
-
-	//the help message explicitly says age, though...
-	'age' : ['For you? Never.']
-};
-var template = 'A person that age can shag down to {lower}, '+
-	'and is the lower limit of a person of {higher} years.';
-
-
-
-})();
-
-;
 (function () {
 var types = {
 	answer   : true,
@@ -5156,13 +5120,23 @@ bot.addCommand({
 
 })();
 
-var blackscreen = function() {
-	return 'http://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it';
-	};
+var links = {
+    blackscreen: "http://askubuntu.com/questions/162075/my-computer-boots-to-a-black-screen-what-options-do-i-have-to-fix-it",
+    broadcom: "http://askubuntu.com/questions/55868/how-to-install-broadcom-wireless-drivers"
+};
+
+var sendLink( args ) {
+    if (args in links) {
+
+        return links[args];
+       
+    }
+    
+}
 
 bot.addCommand({  
-	name : 'black-screen',
-	fun : blackscreen,
+	name : 'link',
+	fun : sendLink,
 	permissions : {
 		del : 'NONE'
 	}
