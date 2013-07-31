@@ -5125,7 +5125,7 @@ var links = {
     broadcom: "http://askubuntu.com/questions/55868/how-to-install-broadcom-wireless-drivers"
 };
 
-var sendLink( args ) {
+var sendLink = function( args ) {
     if (args in links) {
 
         return links[args];
