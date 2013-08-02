@@ -2269,7 +2269,7 @@ var privilegedCommands = {
 };
 //voting-based commands for unpriviledged users
 var communal = {
-	die : true, ban : true
+	die : true, ban : true, summon : false
 };
 
 Object.iterate( commands, function ( cmdName, fun ) {
@@ -4529,7 +4529,7 @@ bot.addCommand( bot.CommunityCommand({
 	fun : unsummon,
 	permissions : {
 		del : 'NONE',
-		use : 'OWNER'
+		use : 'ALL'
 	},
 	description : 'Chant zippidi dee and from the room I shall take my leave. ' +
 		'`/unsummon [roomid=your_roomid]`'
@@ -5134,6 +5134,7 @@ var sendLink = function( args ) {
 }
 
 bot.addCommand({  
+
 	name : 'link',
 	fun : sendLink,
 	permissions : {
