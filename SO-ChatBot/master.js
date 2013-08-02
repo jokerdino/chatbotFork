@@ -4701,8 +4701,7 @@ var actions = {
 	}
 };
 
-var todo = function ( args ) {
-	var props = args.parse();
+/*	var props = args.parse();
 	bot.log( props, 'todo input' );
 
 	if ( !props[0] ) {
@@ -4740,7 +4739,7 @@ bot.addCommand({
 		'`rm items|indices` removes items specified by indice or content'
 });
 
-}());
+}()); */
 
 
 (function () {
