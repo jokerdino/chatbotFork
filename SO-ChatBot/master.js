@@ -4159,7 +4159,7 @@ function stringMuteList () {
 		return 'Nobody is muted';
 	}
 
-	var base = 'http://chat.stackoverflow.com/transcript/message/';
+	var base = 'http://chat.stackexchange.com/transcript/message/';
 
 	return keys.map(function ( k ) {
 		return bot.adapter.link( k, base + muted[k].invokingId );
@@ -4529,7 +4529,7 @@ bot.addCommand( bot.CommunityCommand({
 	fun : unsummon,
 	permissions : {
 		del : 'NONE',
-		use : 'ALL'
+		use : 'OWNER'
 	},
 	description : 'Chant zippidi dee and from the room I shall take my leave. ' +
 		'`/unsummon [roomid=your_roomid]`'
