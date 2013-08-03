@@ -180,6 +180,7 @@ bot.addCommand({
 	fun  : learn,
 	privileges : {
 		del : 'NONE'
+		use : 'OWNER'
 	},
 
 	description : 'Teaches me a command. ' +
