@@ -622,7 +622,7 @@ var descriptions = {
 var privilegedCommands = {
 	die : true, live  : true,
 	ban : true, unban : true,
-	refresh : true
+	refresh : true, info : true
 };
 //voting-based commands for unpriviledged users
 var communal = {

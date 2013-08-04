@@ -180,7 +180,7 @@ bot.addCommand({
 	fun  : learn,
 	privileges : {
 		del : 'NONE'
-		use : 'OWNER'
+		use : 'OWNER' //only owner can add custom commands. Should change this to an array of user ID's by and by
 	},
 
 	description : 'Teaches me a command. ' +
