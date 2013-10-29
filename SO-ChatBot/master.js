@@ -5128,7 +5128,7 @@ var sendLink = function( args ) {
     if (args in links) {
 
     	console.log(args);
-    	msg.directreply(links[args]);
+    	args.directreply(links[args]);
         return;
        
     }
