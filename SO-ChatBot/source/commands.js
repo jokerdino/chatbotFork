@@ -15,8 +15,8 @@ var commands = {
 			return args + ': ' + desc;
 		}
 
-		return 'Please read this link to learn more about me: ' + 
-			'https://github.com/Seth-Johnson/chatbotFork/wiki/About-sudoBot';
+		return 'Please [click here](https://github.com/Seth-Johnson/' +
+			'chatbotFork/wiki/About-sudoBot) to learn more about me.';
 	},
 
 	listen : function ( msg ) {
