@@ -310,7 +310,7 @@ var commands = {
 			}
 		}
 
-		args.directreply( 'http://stackoverflow.com/users/' + id );
+		args.directreply( 'http://chat.stackexchange.com/users/' + id );
 	}
 };
 
