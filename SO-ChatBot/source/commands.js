@@ -15,8 +15,8 @@ var commands = {
 			return args + ': ' + desc;
 		}
 
-		return 'https://github.com/Zirak/SO-ChatBot/wiki/' +
-			'Interacting-with-the-bot';
+		return 'https://github.com/Seth-Johnson/chatbotFork/wiki/About-sudoBot' +
+			'Information-on-the-bot';
 	},
 
 	listen : function ( msg ) {
@@ -93,14 +93,14 @@ var commands = {
 				msg = 'Cannot find user {0}.';
 			}
 			else if ( bot.isOwner(id) ) {
-				msg = 'Cannot mindjail owner {0}.';
+				msg = 'Cannot ban owner {0}.';
 			}
 			else if ( bot.banlist.contains(id) ) {
-				msg = 'User {0} already in mindjail.';
+				msg = 'User {0} already banned.';
 			}
 			else {
 				bot.banlist.add( id );
-				msg = 'User {0} added to mindjail.';
+				msg = 'User {0} added has been banned.';
 			}
 
 			ret.push( msg.supplant(usrid) );
@@ -131,11 +131,11 @@ var commands = {
 				msg = 'Cannot find user {0}.';
 			}
 			else if ( !bot.banlist.contains(id) ) {
-				msg = 'User {0} isn\'t in mindjail.';
+				msg = 'User {0} isn\'t banned.';
 			}
 			else {
 				bot.banlist.remove( id );
-				msg = 'User {0} freed from mindjail!';
+				msg = 'User {0} has been unbanned';
 			}
 
 			ret.push( msg.supplant(usrid) );
@@ -365,97 +365,6 @@ return function ( args ) {
 
 commands.eval.async = commands.coffee.async = true;
 
-//cb is for internal usage by other commands/listeners
-commands.norris = function ( args, cb ) {
-	var chucky = 'http://api.icndb.com/jokes/random';
-
-	IO.jsonp({
-		url : chucky,
-		fun : finishCall,
-		jsonpName : 'callback'
-	});
-
-	function finishCall ( resp ) {
-		var msg;
-
-		if ( resp.type !== 'success' ) {
-			msg = 'Chuck Norris is too awesome for this API. Try again.';
-		}
-		else {
-			msg = IO.decodehtmlEntities( resp.value.joke );
-		}
-
-		if ( cb && cb.call ) {
-			cb( msg );
-		}
-		else {
-			args.reply( msg );
-		}
-	}
-};
-commands.norris.async = true;
-
-//cb is for internal blah blah blah
-commands.urban = (function () {
-var cache = Object.create( null );
-
-return function ( args, cb ) {
-	if ( !args.length ) {
-		return 'Y U NO PROVIDE ARGUMENTS!?';
-	}
-
-	if ( cache[args] ) {
-		return finish( cache[args] );
-	}
-
-	IO.jsonp({
-		url : 'http://api.urbandictionary.com/v0/define',
-		data : {
-			term : args.content
-		},
-		jsonpName : 'callback',
-		fun : complete
-	});
-
-	function complete ( resp ) {
-		var msg;
-
-		if ( resp.result_type === 'no_results' ) {
-			msg = 'No definition found for ' + args;
-		}
-		else {
-			msg = formatTop( resp.list[0] );
-		}
-		cache[ args ] = msg;
-
-		finish( msg );
-	}
-
-	function finish ( def ) {
-		if ( cb && cb.call ) {
-			cb( def );
-		}
-		else {
-			args.reply( def );
-		}
-	}
-
-	function formatTop ( top ) {
-		//replace [tag] in definition with links
-		var def = top.definition.replace( /\[([^\]]+)\]/g, formatTag );
-
-		return args.link( top.word, top.permalink ) + ' ' + def;
-	}
-	function formatTag ( $0, $1 ) {
-		var href =
-			'http://urbandictionary.com/define.php?term=' +
-			encodeURIComponent( $1 );
-
-		return args.link( $0, href );
-	}
-};
-}());
-commands.urban.async = true;
 
 var parse = commands.parse = (function () {
 var macros = {
@@ -698,7 +607,6 @@ var descriptions = {
 	listen : 'Forwards the message to my ears (as if called without the /)',
 	live : 'Resurrects me (:D) if I\'m down',
 	mdn : 'Fetches mdn documentation. `/mdn what`',
-	norris : 'Random chuck norris joke!',
 	parse : 'Returns result of "parsing" message according to the my mini' +
 		'-macro capabilities (see online docs)',
 	refresh : 'Reloads the browser window I live in',
@@ -706,7 +614,6 @@ var descriptions = {
 	tell : 'Redirect command result to user/message.' +
 		' /tell `msg_id|usr_name cmdName [cmdArgs]`',
 	unban : 'Removes a user from my mindjail. `/unban usr_id|usr_name`',
-	urban : 'Fetches UrbanDictionary definition. `/urban something`',
 	user : 'Fetches user-link for specified user. `/user usr_id|usr_name`',
 };
 
