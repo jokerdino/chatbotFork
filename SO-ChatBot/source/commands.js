@@ -15,8 +15,7 @@ var commands = {
 			return args + ': ' + desc;
 		}
 
-		return 'https://github.com/Seth-Johnson/chatbotFork/wiki/About-sudoBot' +
-			'Information-on-the-bot';
+		return 'https://github.com/Seth-Johnson/chatbotFork/wiki/About-sudoBot';
 	},
 
 	listen : function ( msg ) {
