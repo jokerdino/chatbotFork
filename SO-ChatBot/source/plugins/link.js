@@ -20,5 +20,5 @@ bot.addCommand({
         permissions : {
                 del : 'NONE'
         }
-        
+        });
         
