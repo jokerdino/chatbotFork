@@ -21,4 +21,4 @@ bot.addCommand({
                 del : 'NONE'
         }
         
-        });
+        
