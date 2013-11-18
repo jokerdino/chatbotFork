@@ -13,7 +13,7 @@ var links = {
     improveperformance: "http://askubuntu.com/questions/2194/how-can-i-improve-overall-system-performance",
     unityterminology: "http://askubuntu.com/questions/10228/whats-the-right-terminology-for-unitys-ui-elements",
     noamazon: "http://askubuntu.com/questions/192269/how-can-i-remove-amazon-search-results-from-the-dash-or-disable-the-feature",
-    ubuntu+1: "http://askubuntu.com/questions/18641/theres-an-issue-with-an-alpha-beta-release-of-ubuntu-what-should-i-do",
+    ubuntu1: "http://askubuntu.com/questions/18641/theres-an-issue-with-an-alpha-beta-release-of-ubuntu-what-should-i-do",
     cron: "http://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job",
     apport: "http://askubuntu.com/questions/93457/how-do-i-enable-or-disable-apport",
     wubi: "http://askubuntu.com/questions/330085/can-i-use-wubi-to-manually-install-13-04"
